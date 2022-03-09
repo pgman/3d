@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web API 3D(ライブラリ未使用)</title>
+<script src="js/vector3d.js"></script>
+<script src="js/matrix4x4.js"></script>
+<script src="js/primitive.js"></script>
+<script src="js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', App.init);
+</script>
+</head>
+<body>
+	<div>
+		円の分割数:&nbsp;
+		<select id="divides-select">
+			<option value="8">8</option>
+			<option value="12">12</option>
+			<option value="16" selected>16</option>
+			<option value="20">20</option>
+			<option value="24">24</option>
+		</select>
+		<br>
+		<input type="checkbox" id="shading-checkbox" />
+		<label for="shading-checkbox">フラットシェーディング</label>
+		<br>
+		<input type="checkbox" id="sun-rotation-checkbox" checked/>
+		<label for="sun-rotation-checkbox">太陽自転</label>
+		&nbsp;&nbsp;
+		<input type="checkbox" id="earth-rotation-checkbox" checked/>
+		<label for="earth-rotation-checkbox">地球自転</label>
+		&nbsp;&nbsp;
+		<input type="checkbox" id="earth-revolution-checkbox" checked/>
+		<label for="earth-revolution-checkbox">地球公転</label>
+	</div>
+	<br>
+	<canvas id="canvas"></canvas>
+</body>
+</html>
