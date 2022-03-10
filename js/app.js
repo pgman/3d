@@ -3,11 +3,11 @@ class App {
 		App.CANVAS_WIDTH = 800;								// <canvas>の幅
 		App.CANVAS_HEIGHT = 600;							// <canvas>の高さ
 		App.SUN_RADIUS = 100;								// 太陽の半径
-		App.SUN_ROT_Y_SPEED = -1 / 360 * 2 * Math.PI;		// 太陽の自転の速度
+		App.SUN_ROT_Y_SPEED = 1 / 360 * 2 * Math.PI;		// 太陽の自転の速度
 		App.EARTH_RADIUS = 50;								// 地球の半径
 		App.EARTH_REVOLUTION_RADIUS = 300;					// 地球の公転の半径
-		App.EARTH_ROT_Y_SPEED = -2 / 360 * 2 * Math.PI;		// 地球の自転の速度
-		App.EARTH_REV_Y_SPEED = -0.5 / 360 * 2 * Math.PI;	// 地球の公転の速度
+		App.EARTH_ROT_Y_SPEED = 2 / 360 * 2 * Math.PI;		// 地球の自転の速度
+		App.EARTH_REV_Y_SPEED = 0.5 / 360 * 2 * Math.PI;	// 地球の公転の速度
 		App.EARTH_AXIS = 23.4 / 360 * 2 * Math.PI;			// 地軸の傾き
 		App.AMBIENT_LIGHT = { x: -1, y: -1, z: -1 };		// 環境光1
 		App.AMBIENT_LIGHT_VALUE = 0.8;						// 環境光1の係数
@@ -79,8 +79,9 @@ class App {
 			let earthRotY = Matrix4x4.rotateY(App.earthRotY);
 			let earthRotZ = Matrix4x4.rotateZ(App.EARTH_AXIS);
 			// ※地球の公転は平行移動行列を使う。そうしないと回転してしまう。
-			let earthTrans = Matrix4x4.translate(App.EARTH_REVOLUTION_RADIUS * Math.cos(App.earthRevY), 0, 
-				App.EARTH_REVOLUTION_RADIUS * Math.sin(App.earthRevY));			
+			let earthRev = Matrix4x4.rotateY(App.earthRevY);
+			const earthTransPos = Matrix4x4.multiplyVec(earthRev, { x: App.EARTH_REVOLUTION_RADIUS, y: 0, z: 0 });
+			const earthTrans = Matrix4x4.translate(earthTransPos.x, earthTransPos.y, earthTransPos.z);
 			
 			earthMatrix = Matrix4x4.multiply(earthRotY, earthMatrix);
 			earthMatrix = Matrix4x4.multiply(earthRotZ, earthMatrix);
