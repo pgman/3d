@@ -134,7 +134,7 @@ class App {
 				p = p.map(p => {
 					let v = Vector3d.subtract(p, g);
 					v = Vector3d.unit(v);
-					v = Vector3d.scalar(v, scale * 0.3); // 0.3は適当
+					v = Vector3d.scalar(v, scale * 1); // 係数は適当
 					return Vector3d.add(p, v);
 				});
 	    	} 
