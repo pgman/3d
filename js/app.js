@@ -8,7 +8,7 @@ class App {
 		App.EARTH_REVOLUTION_RADIUS = 300;					// 地球の公転の半径
 		App.EARTH_ROT_Y_SPEED = 2 / 360 * 2 * Math.PI;		// 地球の自転の速度
 		App.EARTH_REV_Y_SPEED = 0.5 / 360 * 2 * Math.PI;	// 地球の公転の速度
-		App.EARTH_AXIS = 23.4 / 360 * 2 * Math.PI;			// 地軸の傾き
+		App.EARTH_AXIS = -23.4 / 360 * 2 * Math.PI;			// 地軸の傾き
 		App.AMBIENT_LIGHT = { x: -1, y: -1, z: -1 };		// 環境光1
 		App.AMBIENT_LIGHT_VALUE = 0.8;						// 環境光1の係数
 		App.AMBIENT_LIGHT2 = { x: 1, y: 1, z: 1 };			// 環境光2
