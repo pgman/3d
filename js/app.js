@@ -119,6 +119,7 @@ class App {
 			];
 			const v0 = Vector3d.subtract(p[1], p[0]);
 			const v1 = Vector3d.subtract(p[2], p[0]);
+			// 左手座標系なので、外積は v1 から v0へ計算する
 			const outer = Vector3d.outerProduct(v1, v0);
 			if(outer.z > 0) {// 視点と逆側を向いているので描画しない
 				return;
