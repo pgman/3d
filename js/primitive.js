@@ -2,15 +2,15 @@ class Primitive {
 	// 球
 	static ball(r, divs = 24) {
 		const ret = [];
-		// X軸に回転する
-		for(let rx = 0; rx < divs / 2; rx += 1) {
-			const ax = rx / divs * 2 * Math.PI;
-			const cy = r * Math.cos(ax);
-			const cr = Math.abs(r * Math.sin(ax));
+		// Z軸に回転する(半回転なので、rz < divs / 2)
+		for(let rz = 0; rz < divs / 2; rz += 1) {
+			const az = rz / divs * 2 * Math.PI;
+			const cy = r * Math.cos(az);
+			const cr = Math.abs(r * Math.sin(az));
 
-			const nax = (rx + 1) / divs * 2 * Math.PI;
-			const ny = r * Math.cos(nax);
-			const nr = Math.abs(r * Math.sin(nax));
+			const naz = (rz + 1) / divs * 2 * Math.PI;
+			const ny = r * Math.cos(naz);
+			const nr = Math.abs(r * Math.sin(naz));
 
 			// Y軸に回転する
 			for(let ry = 0; ry < divs; ry += 1) {
